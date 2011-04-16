@@ -29,7 +29,7 @@ class ThreadedCommentForm(CommentForm):
 
     def get_comment_create_data(self):
         d = super(ThreadedCommentForm, self).get_comment_create_data()
-        d['parent_id'] = self.cleaned_data['parent']
-        d['title'] = self.cleaned_data['title']
+        d['parent_id'] = self.cleaned_data.get('parent', None)
+        d['title'] = self.cleaned_data.get('title', '')
         return d
 
