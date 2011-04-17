@@ -8,6 +8,7 @@ from threadedcomments.models import ThreadedComment
 
 class ThreadedCommentForm(CommentForm):
     parent = forms.IntegerField(required=False, widget=forms.HiddenInput)
+    email = forms.EmailField(required = False, label=_("Email address"))
 
     def __init__(self, target_object, parent=None, data=None, initial=None):
         self.base_fields.insert(
